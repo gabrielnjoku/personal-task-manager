@@ -1,0 +1,12 @@
+/* ============================================================
+   Owner:    Okoye Harrison Chidozie
+   Branch:   feature/okoye-base-layout-css
+   Deadline: Sat 31 Oct (end of day)
+   Rule:     Only the owner edits this file. See CONTRIBUTING.md.
+   ============================================================ */
+
+/* TODO (Okoye): page layout
+   - .app-header, .app-main, .form-section, .list-section, .app-footer
+   - Single column on mobile (default styles)
+   - Use min-width media queries for tablet and desktop (e.g. form beside list)
+*/

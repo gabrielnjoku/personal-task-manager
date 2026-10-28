@@ -1,0 +1,14 @@
+/* ============================================================
+   Owner:    Okoye Harrison Chidozie
+   Branch:   feature/okoye-base-layout-css
+   Deadline: Sat 31 Oct (end of day)
+   Rule:     Only the owner edits this file. See CONTRIBUTING.md.
+   ============================================================ */
+
+/* TODO (Okoye): base styles
+   - :root CSS variables (colours, spacing, font sizes, radius)
+   - CSS reset (box-sizing, margin)
+   - Typography (body, h1, h2, labels)
+   - Mobile-first: write the small-screen styles here first
+   Do not style .btn, .task-card or form fields here. That is components.css (Chioke).
+*/

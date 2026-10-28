@@ -1,0 +1,17 @@
+/* ============================================================
+   Owner:    Chioke Sabastine Kosisochukwu
+   Branch:   feature/chioke-components-css
+   Deadline: Sat 31 Oct (end of day)
+   Rule:     Only the owner edits this file. See CONTRIBUTING.md.
+   ============================================================ */
+
+/* TODO (Chioke): component styles
+   Classes you must style (these names are fixed in the shared contract):
+   - Form: .form-group, label, input, textarea, select, .form-actions
+   - Buttons: .btn, .btn-danger
+   - Errors: .error-text
+   - Task card: .task-card, .task-card.completed, .task-title, .task-meta, .task-actions
+   - Priority badges: .priority-low, .priority-medium, .priority-high
+   - Empty state: #empty-state
+   Keep it mobile-first.
+*/

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+  Owner: Gabriel Njoku (Leader). Nobody else edits this file.
+  Need a new ID or element? Ask Gabriel.
+  The IDs and class names below are the shared contract. Do not rename them.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Task Manager</title>
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Personal Task Manager</h1>
+    <p class="app-subtitle">Organise your tasks and track what you have completed.</p>
+  </header>
+
+  <main class="app-main">
+    <!-- Add / edit task form -->
+    <section class="form-section" aria-labelledby="form-heading">
+      <h2 id="form-heading">Add a task</h2>
+
+      <form id="task-form" novalidate>
+        <input type="hidden" id="task-id" />
+
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" />
+          <span id="title-error" class="error-text" role="alert"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="3"></textarea>
+          <span id="description-error" class="error-text" role="alert"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="priority">Priority</label>
+          <select id="priority" name="priority">
+            <option value="">Select priority</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          <span id="priority-error" class="error-text" role="alert"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="due-date">Due date</label>
+          <input type="date" id="due-date" name="dueDate" />
+          <span id="due-date-error" class="error-text" role="alert"></span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submit-btn" class="btn">Add task</button>
+          <button type="button" id="cancel-edit-btn" class="btn" hidden>Cancel edit</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Task list -->
+    <section class="list-section" aria-labelledby="list-heading">
+      <h2 id="list-heading">Your tasks</h2>
+
+      <!-- Filters / sorting (bonus feature, Jimoh) will go here. Ask Gabriel to add the IDs. -->
+
+      <p id="empty-state">No tasks yet. Add your first task above.</p>
+      <ul id="task-list"></ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Team Resilience &middot; Turing Tech JavaScript Project</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
