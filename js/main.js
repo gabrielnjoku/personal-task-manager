@@ -11,31 +11,90 @@
 import { getTasks, addTask, updateTask, deleteTask, toggleTask } from "./tasks.js";
 import { initForm, fillForm, resetForm } from "./form.js";
 import { renderTasks } from "./render.js";
-// import { filterTasks, sortTasks } from "./filters.js"; // bonus, once merged
+import { filterTasks, sortTasks } from "./filters.js";
 
-// TODO (Gabriel): redraw the list from the current tasks
+// Filter and sort controls (bonus feature)
+const searchInput = document.getElementById("search-input");
+const statusSelect = document.getElementById("filter-status");
+const prioritySelect = document.getElementById("filter-priority");
+const sortSelect = document.getElementById("sort-by");
+
+// Redraw the list from the current tasks
 function refresh() {
+  const filters = {
+    status: statusSelect.value,
+    priority: prioritySelect.value,
+    search: searchInput.value
+  };
+
+  let tasks = getTasks();
+  tasks = filterTasks(tasks, filters);
+  tasks = sortTasks(tasks, sortSelect.value);
+
+  renderTasks(tasks, {
+    onToggle: handleToggle,
+    onEdit: handleEdit,
+    onDelete: handleDelete
+  });
 }
 
-// TODO (Gabriel): data comes from the form (data.id is "" when adding).
-// Add or update, reset the form, then refresh.
+// data comes from the form (data.id is "" when adding)
 function handleSubmit(data) {
+  if (data.id === "") {
+    addTask(data);
+  } else {
+    updateTask(data.id, data);
+  }
+
+  resetForm();
+  refresh();
 }
 
-// TODO (Gabriel): toggle a task, then refresh
+// Mark a task as completed or pending
 function handleToggle(id) {
+  toggleTask(id);
+  refresh();
 }
 
-// TODO (Gabriel): find the task and send it to fillForm()
+// Find the task and put its values into the form
 function handleEdit(id) {
+  const tasks = getTasks();
+
+  for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i].id === id) {
+      fillForm(tasks[i]);
+      break;
+    }
+  }
 }
 
-// TODO (Gabriel): delete a task (consider a confirm), then refresh
+// Ask the user first, then delete the task
 function handleDelete(id) {
+  const sure = confirm("Are you sure you want to delete this task?");
+  if (!sure) {
+    return;
+  }
+
+  deleteTask(id);
+
+  // If the deleted task was being edited, clear the form
+  if (document.getElementById("task-id").value === id) {
+    resetForm();
+  }
+
+  refresh();
 }
 
-// TODO (Gabriel): initForm({ onSubmit: handleSubmit }), then the first refresh()
 function init() {
+  initForm({ onSubmit: handleSubmit });
+
+  // Redraw the list when a filter or the sort option changes
+  searchInput.addEventListener("input", refresh);
+  statusSelect.addEventListener("change", refresh);
+  prioritySelect.addEventListener("change", refresh);
+  sortSelect.addEventListener("change", refresh);
+
+  refresh();
 }
 
 document.addEventListener("DOMContentLoaded", init);
