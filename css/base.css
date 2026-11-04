@@ -9,14 +9,13 @@
    - :root CSS variables (colours, spacing, font sizes, radius)
    - CSS reset (box-sizing, margin)
    - Typography (body, h1, h2, labels)
-   - Mobile-first: write the small-screen styles here first
-   Do not style .btn, .task-card or form fields here. That is components.css (Chioke).
-*/
+   
 
 
 /* =========================================
    PERSONAL TASK MANAGER
-   Owner: Your individual branch
+   Owner: Okoye Harrison Chidozie
+   Branch: feature/okoye-base-layout-css
    File: base.css
    Purpose: Global design foundation
 ========================================= */
