@@ -10,3 +10,217 @@
    - Single column on mobile (default styles)
    - Use min-width media queries for tablet and desktop (e.g. form beside list)
 */
+
+
+
+/* =========================================
+   PERSONAL TASK MANAGER
+   Owner: Okoye Harrison Chidozie
+   Branch: feature/okoye-base-layout-css
+   File: layout.css
+   Purpose: Responsive application layout
+   Design: Mobile-first
+========================================= */
+
+
+/* =========================================
+   1. APPLICATION HEADER
+========================================= */
+
+.app-header {
+  width: 100%;
+  padding: 32px 16px;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.app-header h1 {
+  margin-bottom: 8px;
+  color: var(--color-primary);
+}
+
+.app-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--color-text-muted);
+}
+
+
+/* =========================================
+   2. MAIN APPLICATION CONTAINER
+========================================= */
+
+.app-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+
+/* =========================================
+   3. FORM AND TASK SECTIONS
+========================================= */
+
+.form-section,
+.list-section {
+  min-width: 0;
+  padding: 20px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-section h2,
+.list-section h2 {
+  margin-bottom: 20px;
+}
+
+.form-section {
+  align-self: start;
+}
+
+
+/* =========================================
+   4. FILTERS LAYOUT
+========================================= */
+
+.filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.filters .form-group {
+  min-width: 0;
+}
+
+
+/* =========================================
+   5. TASK LIST LAYOUT
+========================================= */
+
+#task-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+}
+
+#task-list > li {
+  min-width: 0;
+}
+
+
+/* =========================================
+   6. FOOTER
+========================================= */
+
+.app-footer {
+  width: 100%;
+  margin-top: 24px;
+  padding: 24px 16px;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.app-footer p {
+  font-size: 14px;
+}
+
+
+/* =========================================
+   7. SMALL TABLETS - 600px AND ABOVE
+========================================= */
+
+@media (min-width: 600px) {
+
+  .app-header {
+    padding: 40px 24px;
+  }
+
+  .app-main {
+    padding: 32px 24px;
+    gap: 28px;
+  }
+
+  .form-section,
+  .list-section {
+    padding: 24px;
+  }
+
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+}
+
+
+/* =========================================
+   8. TABLETS - 768px AND ABOVE
+========================================= */
+
+@media (min-width: 768px) {
+
+  .app-main {
+    padding: 40px 32px;
+  }
+
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================
+   9. DESKTOP - 1024px AND ABOVE
+========================================= */
+
+@media (min-width: 1024px) {
+
+  .app-main {
+    grid-template-columns:
+      minmax(280px, 0.85fr)
+      minmax(0, 1.4fr);
+
+    align-items: start;
+    gap: 32px;
+    padding: 48px 32px;
+  }
+
+  .form-section,
+  .list-section {
+    padding: 28px;
+  }
+
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================
+   10. LARGE DESKTOP - 1280px AND ABOVE
+========================================= */
+
+@media (min-width: 1280px) {
+
+  .app-main {
+    max-width: 1280px;
+    gap: 36px;
+  }
+
+}
+
